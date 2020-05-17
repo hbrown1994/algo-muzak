@@ -11,21 +11,14 @@ function getInfo () {
   let data = []
   const xhr = new XMLHttpRequest();
   xhr.onreadystatechange = function() {
-	   if (this.readyState == 4 && this.status == 200) {
-		     var response = JSON.parse(this.responseText);
-         data = [
-           response.countryCode,
-           response.city,
-           response.zip,
-           String(response.lat),
-           String(response.lon),
-           response.org,
-           response.query]
-	        }
-        }
-        xhr.open('GET', endpoint, false); //must be synchronous!
-        xhr.send();
-    return data
+    if (this.readyState == 4 && this.status == 200) {
+      var r = JSON.parse(this.responseText);
+      data = [r.countryCode,r.city,r.zip,String(r.lat),String(r.lon),r.org,r.query]
+    }
+  }
+  xhr.open('GET', endpoint, false) //must be synchronous!
+  xhr.send()
+  return data
 }
 
 //store getInfo(); to an array & array for storing char vaules
@@ -33,12 +26,11 @@ const info = getInfo();
 let nums = []
 let numsNorm = []
 let numsNormBipolar = []
-
-
-//Make empty arrays to fill w/nums from info[0...length]
 let numsSplit = []
 let numsSplitNorm = []
 let numsSplitBipolar = []
+
+//Make empty multi-dim arrays to fill w/nums
 for (var t = 0; t < info.length; t++) numsSplit.push([])
 for (var n = 0; n < info.length; n++) numsSplitNorm.push([])
 for (var  b = 0; b < info.length; b++) numsSplitBipolar.push([])
@@ -59,10 +51,7 @@ for (var j = 0; j < info.length; j++) {
   }
 }
 
-
-
 //concat aboves arrays together into one array
-//raw nums
 for (var y = 0; y < numsSplit.length; y++) nums = nums.concat(numsSplit[y])
 //nums normalized
 for (var m = 0; m < numsSplit.length; m++) {
@@ -72,12 +61,3 @@ for (var m = 0; m < numsSplit.length; m++) {
 for (var o = 0; o < numsSplitBipolar.length; o++) {
   numsNormBipolar = numsNormBipolar.concat(numsSplitBipolar[o])
 }
-
-//print info for test
-// console.log(chars)
-// console.log(info)
-// console.log(nums)
-// console.log(numsSplitNorm)
-// console.log(numsNorm)
-// console.log(numsSplitBipolar)
-// console.log(numsNormBipolar)
