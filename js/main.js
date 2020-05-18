@@ -10,13 +10,17 @@ const ctx = new (window.AudioContext || window.webkitAudioContext)()
 const fft = new AnalyserNode(ctx, { fftSize: 2048 })
 const time = ctx.currentTime
 
-//Make oscs, lvls, and pans
-var count, oscs = [], lvls = [], pans = []
-const panPos = [-1, 0, 1]
-for (i = 0; i < numsSplit.length; i++) {
-    oscs.push(new OscillatorNode( ctx ))
-    lvls.push(new GainNode( ctx, {gain:0.25}))
-    pans.push(new PannerNode( ctx, {positionX: 0}))
+//FUNCTIONS____________________________________________________________________
+function shuffle(array) {
+  var currentIndex = array.length, temporaryValue, randomIndex;
+  while (0 !== currentIndex) {
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
+    temporaryValue = array[currentIndex];
+    array[currentIndex] = array[randomIndex];
+    array[randomIndex] = temporaryValue;
+  }
+  return array;
 }
 
 function adsrExp (param, initVal, peak, val, t, a, d, s, r) {
@@ -41,6 +45,18 @@ for (var i = 0; i < atks.length; i++) {
   atksDiv.push(norm)
 }
 return atksDiv
+}
+
+//Make audio instances and canvas___________________________________________
+
+//Make oscs, lvls, and pans
+var count, oscs = [], lvls = [], pans = []
+let panPos = [-1, 0, 1]
+panPos = shuffle(panPos)
+for (i = 0; i < numsSplit.length; i++) {
+    oscs.push(new OscillatorNode( ctx ))
+    lvls.push(new GainNode( ctx, {gain:0.25}))
+    pans.push(new PannerNode( ctx, {positionX: 0}))
 }
 
 createWaveCanvas({
@@ -133,8 +149,9 @@ for (var j = 0; j < waveForms.length; j++) {
     )
   }
 
-  //set pans -> random across setero field
-  pans[j].setPosition(panPos[Math.floor(Math.random()*3)],0,0)
+  //set pans -> random/even across setero field
+  if (j%3 === 1) panPos = shuffle(panPos)
+  pans[j].setPosition(panPos[j%3],0,0)
 
   //set adsr
   let adsrArr = randomNumSum(4, totalTime/4)
