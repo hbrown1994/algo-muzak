@@ -76,7 +76,7 @@ createFrequencyCanvas({
 
 /*___ Data -> Sound _________________________________________________________*/
 //dyanmically create arrays and fill
-let firstWaveFormReal = []
+let firstWaveFormReal = [0]
 let firstWaveFormImag = []
 let waveForms = []
 
@@ -113,6 +113,8 @@ for (var i = 1; i < numsSplitBipolar.length; i++) {
     )
   )
 }
+
+waveForms = shuffle(waveForms)
 
 //calculate sum of items in an array
 let arraySums = []

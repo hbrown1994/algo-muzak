@@ -33,7 +33,7 @@ let numsSplitBipolar = []
 //Make empty multi-dim arrays to fill w/nums
 for (var t = 0; t < info.length; t++) numsSplit.push([])
 for (var n = 0; n < info.length; n++) numsSplitNorm.push([])
-for (var  b = 0; b < info.length; b++) numsSplitBipolar.push([])
+for (var  b = 0; b < info.length; b++) numsSplitBipolar.push([0])
 
 //Store char vaules into split arrays and normalize (bipolar and standard)
 for (var j = 0; j < info.length; j++) {
@@ -62,11 +62,11 @@ for (var o = 0; o < numsSplitBipolar.length; o++) {
   numsNormBipolar = numsNormBipolar.concat(numsSplitBipolar[o])
 }
 
-// console.log(chars)
-// console.log(info)
-// console.log(nums)
-// console.log(numsSplitNorm)
-// console.log(numsNorm)
-// console.log(numsNormBipolar)
-// console.log(numsSplitBipolar)
-// console.log(numsNormBipolar)
+console.log(chars)
+console.log(info)
+console.log(nums)
+console.log(numsSplitNorm)
+console.log(numsNorm)
+console.log(numsNormBipolar)
+console.log(numsSplitBipolar)
+console.log(numsNormBipolar)
