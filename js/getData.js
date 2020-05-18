@@ -61,3 +61,12 @@ for (var m = 0; m < numsSplit.length; m++) {
 for (var o = 0; o < numsSplitBipolar.length; o++) {
   numsNormBipolar = numsNormBipolar.concat(numsSplitBipolar[o])
 }
+
+// console.log(chars)
+// console.log(info)
+// console.log(nums)
+// console.log(numsSplitNorm)
+// console.log(numsNorm)
+// console.log(numsNormBipolar)
+// console.log(numsSplitBipolar)
+// console.log(numsNormBipolar)

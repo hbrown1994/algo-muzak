@@ -1,0 +1,16 @@
+
+* {
+  box-sizing: border-box;
+  background-color: black;
+  font-family: sans-serif;
+  color: white;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+canvas {
+  display: block;
+}
