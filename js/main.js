@@ -47,7 +47,6 @@ for (var i = 0; i < atks.length; i++) {
 return atksDiv
 }
 
-
 //Make audio instances and canvas___________________________________________
 //Make oscs, lvls, and pans
 var count, oscs = [], lvls = [], pans = []
