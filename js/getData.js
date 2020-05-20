@@ -29,6 +29,8 @@ if (info.length === 0) {
   info = ["US", "Chicago", "60615", "41.8018", "-87.5993", "Comcast IP Services, L.L.C.", "73.44.30.245"]
 }
 
+console.log(info.length);
+
 let nums = []
 let numsNorm = []
 let numsNormBipolar = []
