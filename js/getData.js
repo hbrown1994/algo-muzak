@@ -4,25 +4,25 @@ for (; c0 <= cN; ++c0) {chars.push(String.fromCharCode(c0))}
 
 /*______Get Location and Internet Provider Info and store into an array_______*/
 //init ip-api to retrieve data
-const endpoint = 'http://ip-api.com/json/?fields=country,countryCode,city,zip,lat,lon,org,query';
-
-//function that "gets" the user's info, returns data as an array when called
-function getInfo () {
-  let data = []
-  const xhr = new XMLHttpRequest();
-  xhr.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) {
-      var r = JSON.parse(this.responseText);
-      data = [r.countryCode,r.city,r.zip,String(r.lat),String(r.lon),r.org,r.query]
-    }
-  }
-  xhr.open('GET', endpoint, false) //must be synchronous!
-  xhr.send()
-  return data
-}
-
-//store getInfo(); to an array & array for storing char vaules
-let info = getInfo();
+// const endpoint = 'http://ip-api.com/json/?fields=country,countryCode,city,zip,lat,lon,org,query';
+//
+// //function that "gets" the user's info, returns data as an array when called
+// function getInfo () {
+//   let data = []
+//   const xhr = new XMLHttpRequest();
+//   xhr.onreadystatechange = function() {
+//     if (this.readyState == 4 && this.status == 200) {
+//       var r = JSON.parse(this.responseText);
+//       data = [r.countryCode,r.city,r.zip,String(r.lat),String(r.lon),r.org,r.query]
+//     }
+//   }
+//   xhr.open('GET', endpoint, false) //must be synchronous!
+//   xhr.send()
+//   return data
+// }
+//
+// //store getInfo(); to an array & array for storing char vaules
+// let info = getInfo();
 
 //if getInfo() fails, fill with Hunter's data
 if (info.length === 0) {
