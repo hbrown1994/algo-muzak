@@ -3,7 +3,7 @@ let chars = [], c0 = ' '.charCodeAt(0),  cN = '~'.charCodeAt(0);
 for (; c0 <= cN; ++c0) {chars.push(String.fromCharCode(c0))}
 
 /*______Get Location and Internet Provider Info and store into an array_______*/
-init ip-api to retrieve data
+// init ip-api to retrieve data
 const endpoint = 'http://ip-api.com/json/?fields=country,countryCode,city,zip,lat,lon,org,query';
 
 //function that "gets" the user's info, returns data as an array when called
