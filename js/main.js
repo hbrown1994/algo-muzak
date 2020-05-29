@@ -5,6 +5,9 @@ generative audio omposition.
 locataion data is parsed in js/getData.js
 */
 
+//wait for getData.js and parseData.js to finish
+setTimeout(function(){
+
 //Globals: audio context, fft, fft canvas
 const ctx = new (window.AudioContext || window.webkitAudioContext)()
 const fft = new AnalyserNode(ctx, { fftSize: 2048 })
@@ -162,3 +165,4 @@ for (var j = 0; j < waveForms.length; j++) {
   oscs[j].start(ctx.currentTime ) // start now
   oscs[j].stop(ctx.currentTime + totalTime + 1 )
 }
+}, 700)
