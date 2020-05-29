@@ -136,6 +136,8 @@ for (var i = 0; i < 7; i++) totalTime = totalTime + arraySums[i]
 for (var j = 0; j < waveForms.length; j++) {
   let scale = 6, add=40; //scale freqs, add determines lowest pitch
 
+  scale = Math.round(Math.random())+5;
+
   oscs[j].connect(pans[j])
   pans[j].connect(lvls[j])
   lvls[j].connect(fft)
@@ -165,4 +167,4 @@ for (var j = 0; j < waveForms.length; j++) {
   oscs[j].start(ctx.currentTime ) // start now
   oscs[j].stop(ctx.currentTime + totalTime + 1 )
 }
-}, 700)
+}, 1000)

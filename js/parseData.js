@@ -63,4 +63,4 @@ console.log(nums)
 // console.log(numsSplitBipolar)
 // console.log(numsNormBipolar)
 
-}, 500);
+}, 900);
