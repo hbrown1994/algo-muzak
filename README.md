@@ -1,5 +1,7 @@
 # Terrane_1
 
+~Only works in FireFox for now~
+
 This Javascript code uses the IP API to collect the user's current Country Code, city, zipcode, latitude, longitude, internet provider, and IP address. Each of these chunks of data are converted to their numerical utf-8 character codes. These numerical character codes are then used to create 9 wavetable oscillators, these oscillator's frequencies over time, the duration of each synth instance, and the duration of the musical composition as a whole. This drone-based implementation represents one way in which this data can be used to construct a mutable collection of generative musical compositions. <br />
 
 (This web page is currently using a hardcoded data set from my location in Chicago, this will be removed once I get the IP-API working.)
